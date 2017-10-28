@@ -1,8 +1,8 @@
 # __VPN blocking bypass with socat__
 
-This is a **quick** and __dirty__ way to bypass VPN restrictions in Egypt.
+This is a **quick** and __dirty__ way to bypass VPN restrictions in some of the countries that block VPN connections.
 
-As many of you know that Egypt had blocked a lot of VPN protocols, software and tools.
+As many of you know that :eg: had blocked a lot of VPN protocols, software and tools.
 
 ## Requirements of the solution:
 
