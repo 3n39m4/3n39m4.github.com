@@ -1,12 +1,12 @@
 # __VPN blocking bypass with socat__
-![Logo](https://3n39m4.github.com/images/vpn/AWS_Simple_Icons.png)
+
 This is a **quick** and __dirty__ way to bypass VPN restrictions in Egypt.
 
 As many of you know that Egypt had blocked a lot of VPN protocols, software and tools.
 
 ## Requirements of the solution:
 
-1. Free or cheap solution (no one wants to pay any money :smiley:).
+1. Free or cheap solution (no one wants to pay any money :smiley: ).
 
 
 The idea is simple, we want to make a tunnel of a white listed protocol (for ex: SSL/TLS) which is hard to block or do DPI on it. Then encapsulating our VPN traffic inside it.
@@ -35,7 +35,7 @@ Enough said, let’s start circumventing the measures made to block the VPN.
 
 We have the following topology:
 
-insert image here (too lazy to fix libreoffice .. maybe later)
+insert image here (still .. too lazy to fix libreoffice .. maybe later)
 
 Host=Kali
 VPS=Server
@@ -48,7 +48,8 @@ __Kali__ <==== SSL/TLS encrypted VPN traffic =====> __Server__ <===== VPN traffi
 The changes done on the __Kali__ box:
 
 Make a self-signed certificate and copy it to the Server.
-`#> openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out enegma.crt -keyout enegma.key
+`#> openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out enegma.crt -keyout enegma.key`
+
 ![openssl cert]()
     Edit the connection pack file to point to your localhost (in my case called enegma.ovpn).
     enegma.ovpn-edit
