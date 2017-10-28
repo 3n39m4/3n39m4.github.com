@@ -35,9 +35,9 @@ We have the following topology:
 
 insert image here (still .. too lazy to fix libreoffice .. maybe later)
 
-Host=Kali
-VPS=Server
-VPN=HTB
+Host=Kali  
+VPS=Server  
+VPN=HTB  
 
 We need to implement the following:
 
@@ -46,11 +46,11 @@ __Kali__ <==== SSL/TLS encrypted VPN traffic =====> __Server__ <===== VPN traffi
 The changes done on the __Kali__ box:
 
 Make a self-signed certificate and copy it to the Server.
-``` bash
+```bash
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out enegma.crt -keyout enegma.key
 ```
 
-![openssl cert]("https://3n39m4.github.com/images/vpn/openssl cert.png")
+![openssl cert](https://3n39m4.github.com/images/vpn/openssl-cert.png)
 
 
 Edit the connection pack file to point to your localhost (in my case called enegma.ovpn).
@@ -59,12 +59,16 @@ Edit the connection pack file to point to your localhost (in my case called eneg
 
 
 Set up a socat listener and forwarder.
-``` socat UDP-LISTEN:1337 OPENSSL:########.eu-west-1.compute.amazonaws.com:443,reuseaddr,pf=ip4,fork,cert=/root/tmp/enegma.pem,cafile=/root/tmp/enegma.pem,verify=0 ```
+```bash
+socat UDP-LISTEN:1337 OPENSSL:\#\#\#\#\#\#\#\#.eu-west-1.compute.amazonaws.com:443,reuseaddr,pf=ip4,fork,cert=/root/tmp/enegma.pem,cafile=/root/tmp/enegma.pem,verify=0
+```
 
 Changes done on the Server:
 
 Set up a socat listener
-``` socat OPENSSL-LISTEN:443,reuseaddr,pf=ip4,fork,cert=/root/enegma.pem,cafile=/root/enegma.pem,verify=0 UDP:edge-eu-free-1.hackthebox.eu:1337 ```
+```bash
+socat OPENSSL-LISTEN:443,reuseaddr,pf=ip4,fork,cert=/root/enegma.pem,cafile=/root/enegma.pem,verify=0 UDP:edge-eu-free-1.hackthebox.eu:1337
+```
 
 From the Kali host we make a connection to HTB as usual.
 
@@ -72,7 +76,7 @@ From the Kali host we make a connection to HTB as usual.
 
 ![proof 2](https://3n39m4.github.com/images/vpn/proof2.png)
 
-Now have fun :smiley:
+Now have fun :smiley:  
 
 Remember this is a quick and dirty way to do, but I’ll update this post later with the best practice regarding encryption and certificate creation and use.
 
