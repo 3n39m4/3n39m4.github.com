@@ -46,7 +46,9 @@ __Kali__ <==== SSL/TLS encrypted VPN traffic =====> __Server__ <===== VPN traffi
 The changes done on the __Kali__ box:
 
 Make a self-signed certificate and copy it to the Server.
-``` #> openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out enegma.crt -keyout enegma.key ```
+```
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out enegma.crt -keyout enegma.key
+```
 
 ![openssl cert](https://3n39m4.github.com/images/vpn/openssl cert.png)
 
