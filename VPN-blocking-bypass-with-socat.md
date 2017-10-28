@@ -46,11 +46,11 @@ __Kali__ <==== SSL/TLS encrypted VPN traffic =====> __Server__ <===== VPN traffi
 The changes done on the __Kali__ box:
 
 Make a self-signed certificate and copy it to the Server.
-```
+``` bash
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out enegma.crt -keyout enegma.key
 ```
 
-![openssl cert](https://3n39m4.github.com/images/vpn/openssl cert.png)
+![openssl cert]("https://3n39m4.github.com/images/vpn/openssl cert.png")
 
 
 Edit the connection pack file to point to your localhost (in my case called enegma.ovpn).
