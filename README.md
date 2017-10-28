@@ -1,2 +1,2 @@
 # 3n39m4.github.com
-Blog
+Hacking and other stuff :D
