@@ -1,5 +1,5 @@
 # Welcome to my simple blog  
 
-## Check my latest posts:
+## Check out my latest post:
 
 - [VPN blocking bypass with socat](https://3n39m4.github.io/VPN-blocking-bypass-with-socat)
