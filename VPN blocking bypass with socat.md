@@ -1,7 +1,5 @@
 # VPN blocking bypass with socat
-
 ![Logo](https://3n39m4.github.com/images/vpn/AWS_Simple_Icons_Networking_Amazon_VPC_VPN_Gateway.svg.png)
-
 This is a **quick** and __dirty__ way to bypass VPN restrictions in Egypt.
 
 As many of you know that Egypt had blocked a lot of VPN protocols, software and tools.
