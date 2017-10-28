@@ -2,12 +2,9 @@
 
 This is a **quick** and __dirty__ way to bypass VPN restrictions in some of the countries that block VPN connections.
 
-As many of you know that :eg: had blocked a lot of VPN protocols, software and tools.
-
 ## Requirements of the solution:
 
-1. Free or cheap solution (no one wants to pay any money :smiley: ).
-
+1. Free or cheap solution (no one wants to pay any money :smiley: ).  
 
 The idea is simple, we want to make a tunnel of a white listed protocol (for ex: SSL/TLS) which is hard to block or do DPI on it. Then encapsulating our VPN traffic inside it.
 
@@ -30,6 +27,7 @@ I used to play on [HackTheBox](https://www.hackthebox.eu/), so this will be the 
 
 What I really liked about socat apart from its great ability to manipulate sockets is the ability to handle SSL/TLS traffic which will talk about it later.
 
+---
 
 Enough said, let’s start circumventing the measures made to block the VPN.
 
@@ -59,12 +57,12 @@ Edit the connection pack file to point to your localhost (in my case called eneg
 
 
 Set up a socat listener and forwarder.
-``` #> socat UDP-LISTEN:1337 OPENSSL:########.eu-west-1.compute.amazonaws.com:443,reuseaddr,pf=ip4,fork,cert=/root/tmp/enegma.pem,cafile=/root/tmp/enegma.pem,verify=0 ```
+``` socat UDP-LISTEN:1337 OPENSSL:########.eu-west-1.compute.amazonaws.com:443,reuseaddr,pf=ip4,fork,cert=/root/tmp/enegma.pem,cafile=/root/tmp/enegma.pem,verify=0 ```
 
 Changes done on the Server:
 
 Set up a socat listener
-``` #> socat OPENSSL-LISTEN:443,reuseaddr,pf=ip4,fork,cert=/root/enegma.pem,cafile=/root/enegma.pem,verify=0 UDP:edge-eu-free-1.hackthebox.eu:1337 ```
+``` socat OPENSSL-LISTEN:443,reuseaddr,pf=ip4,fork,cert=/root/enegma.pem,cafile=/root/enegma.pem,verify=0 UDP:edge-eu-free-1.hackthebox.eu:1337 ```
 
 From the Kali host we make a connection to HTB as usual.
 
