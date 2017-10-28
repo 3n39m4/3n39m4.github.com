@@ -50,24 +50,25 @@ The changes done on the __Kali__ box:
 Make a self-signed certificate and copy it to the Server.
 `#> openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out enegma.crt -keyout enegma.key`
 
-![openssl cert]()
-    Edit the connection pack file to point to your localhost (in my case called enegma.ovpn).
-    enegma.ovpn-edit
-    Set up a socat listener and forwarder.
+![openssl cert](https://3n39m4.github.com/images/vpn/openssl cert.png)
 
-    #> socat UDP-LISTEN:1337 OPENSSL:########.eu-west-1.compute.amazonaws.com:443,reuseaddr,pf=ip4,fork,cert=/root/tmp/enegma.pem,cafile=/root/tmp/enegma.pem,verify=0
+Edit the connection pack file to point to your localhost (in my case called enegma.ovpn).
+![editing](https://3n39m4.github.com/images/vpn/enegma.ovpn-edit.png)
+
+Set up a socat listener and forwarder.
+`#> socat UDP-LISTEN:1337 OPENSSL:########.eu-west-1.compute.amazonaws.com:443,reuseaddr,pf=ip4,fork,cert=/root/tmp/enegma.pem,cafile=/root/tmp/enegma.pem,verify=0`
 
 Changes done on the Server:
 
-    Set up a socat listener
-
-    #> socat OPENSSL-LISTEN:443,reuseaddr,pf=ip4,fork,cert=/root/enegma.pem,cafile=/root/enegma.pem,verify=0 UDP:edge-eu-free-1.hackthebox.eu:1337
+Set up a socat listener
+`#> socat OPENSSL-LISTEN:443,reuseaddr,pf=ip4,fork,cert=/root/enegma.pem,cafile=/root/enegma.pem,verify=0 UDP:edge-eu-free-1.hackthebox.eu:1337`
 
 From the Kali host we make a connection to HTB as usual.
 
-![proof1-edited]()
+![proof 1](https://3n39m4.github.com/images/vpn/proof1-sec.png)
+![proof 2](https://3n39m4.github.com/images/vpn/proof2.png)
 
-Now have fun 😀.
+Now have fun :smiley: .
 
 Remember this is a quick and dirty way to do, but I’ll update this post later with the best practice regarding encryption and certificate creation and use.
 
