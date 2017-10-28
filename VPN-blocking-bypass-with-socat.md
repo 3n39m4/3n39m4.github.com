@@ -62,14 +62,14 @@ Set up a socat listener and forwarder.
 ```bash
 socat UDP-LISTEN:1337 OPENSSL:########.eu-west-1.compute.amazonaws.com:443,reuseaddr,pf=ip4,fork,cert=/root/tmp/enegma.pem,cafile=/root/tmp/enegma.pem,verify=0
 ```  
-
-
-Changes done on the Server:
+  
+  
+Changes done on the __Server__:
 
 Set up a socat listener
 ```bash
 socat OPENSSL-LISTEN:443,reuseaddr,pf=ip4,fork,cert=/root/enegma.pem,cafile=/root/enegma.pem,verify=0 UDP:edge-eu-free-1.hackthebox.eu:1337
-```
+```  
 
 From the Kali host we make a connection to HTB as usual.
 
