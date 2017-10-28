@@ -3,4 +3,10 @@
 
 @import "{{ site.theme }}";
 
-#main_content { width: 1024px; margin: 20px auto; text-align: left  }
+.container {
+ width:90%;
+ max-width:900px;
+ margin:0 auto
+}
+
+#main_content { width: 1024px; margin: 0 auto }
