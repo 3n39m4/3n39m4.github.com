@@ -4,13 +4,13 @@ This is a **quick** and __dirty__ way to bypass VPN restrictions in some of the 
 
 ## Requirements of the solution:
 
-1. Free or cheap solution (no one wants to pay any money :smiley: ).  
+1. Free or cheap solution (no one wants to pay any money :D ).  
 
 The idea is simple, we want to make a tunnel of a white listed protocol (for ex: SSL/TLS) which is hard to block or do DPI on it. Then encapsulating our VPN traffic inside it.
 
 While searching I came cross a Reddit [discussion](https://redd.it/73zc61) which had a lot of ideas and solutions to the problem but it didn’t suit me nor my needs.
 
-## What you will need is:
+## What you will need:
 
 1. AWS instance (any VPS)
 2. SOCAT
@@ -60,7 +60,7 @@ Edit the connection pack file to point to your localhost (in my case called eneg
 
 Set up a socat listener and forwarder.
 ```bash
-socat UDP-LISTEN:1337 OPENSSL:\#\#\#\#\#\#\#\#.eu-west-1.compute.amazonaws.com:443,reuseaddr,pf=ip4,fork,cert=/root/tmp/enegma.pem,cafile=/root/tmp/enegma.pem,verify=0
+socat UDP-LISTEN:1337 OPENSSL:########.eu-west-1.compute.amazonaws.com:443,reuseaddr,pf=ip4,fork,cert=/root/tmp/enegma.pem,cafile=/root/tmp/enegma.pem,verify=0
 ```
 
 Changes done on the Server:
@@ -76,7 +76,7 @@ From the Kali host we make a connection to HTB as usual.
 
 ![proof 2](https://3n39m4.github.com/images/vpn/proof2.png)
 
-Now have fun :smiley:  
+Now have fun :D  
 
 Remember this is a quick and dirty way to do, but I’ll update this post later with the best practice regarding encryption and certificate creation and use.
 
