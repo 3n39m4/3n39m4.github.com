@@ -1,30 +1,30 @@
-# VPN blocking bypass with socat
-![Logo](https://3n39m4.github.com/images/vpn/AWS_Simple_Icons_Networking_Amazon_VPC_VPN_Gateway.svg.png)
+# __VPN blocking bypass with socat__
+![Logo](https://3n39m4.github.com/images/vpn/AWS_Simple_Icons.png)
 This is a **quick** and __dirty__ way to bypass VPN restrictions in Egypt.
 
 As many of you know that Egypt had blocked a lot of VPN protocols, software and tools.
 
 ## Requirements of the solution:
 
-1- Free or cheap solution (no one wants to pay any money 😀 :smile: ).
+1. Free or cheap solution (no one wants to pay any money 😀).
 
 The idea is simple we want to make a tunnel of a white listed protocol (for ex: SSL/TLS) which is hard to block or do DPI on it. Then encapsulating our VPN traffic inside it.
 
-While searching I came cross a Reddit discussion which had a lot of ideas and solutions to the problem but it didn’t suit me nor my needs.
+While searching I came cross a Reddit [discussion](https://redd.it/73zc61) which had a lot of ideas and solutions to the problem but it didn’t suit me nor my needs.
 
-##What you will need is:
+## What you will need is:
 
 1. AWS instance (any VPS)
 2. SOCAT
 3. Patience
 
-I used to play on HackTheBox, so this is the example I’ll be talking about.
+I used to play on [HackTheBox](https://www.hackthebox.eu/), so this is the example I’ll be talking about.
 
 1- For the AWS server you can find a lot of tutorials explaining and walking you through the process which costed me 1 $ (till now).
 
 2- From the man page of socat:
 
-    Socat is a command line based utility that establishes two bidirectional byte streams and transfers data between them. Because the streams can be constructed from a large set of different types of data sinks and sources (see address types), and because lots of address options may be applied to the streams, socat can be used for many different purposes.
+> Socat is a command line based utility that establishes two bidirectional byte streams and transfers data between them. Because the streams can be constructed from a large set of different types of data sinks and sources (see address types), and because lots of address options may be applied to the streams, socat can be used for many different purposes.
 
 What I really liked about socat apart from its great ability to manipulate sockets is the ability to handle SSL/TLS traffic which will talk about it later.
 
@@ -40,9 +40,9 @@ VPN=HTB
 
 We need to implement the following:
 
-Kali <==== SSL/TLS encrypted VPN traffic =====> Server <===== VPN traffic =====> HTB
+__Kali__ <==== SSL/TLS encrypted VPN traffic =====> __Server__ <===== VPN traffic =====> __HTB__
 
-Changes done on the Kali box:
+Changes done on the __Kali__ box:
 
 Make a self-signed certificate and copy it to the Server.
 
@@ -65,9 +65,7 @@ From the Kali host we make a connection to HTB as usual.
 
 ![proof1-edited]()
 
-proof3
-
-Now have fun 😀 .
+Now have fun 😀.
 
 Remember this is a quick and dirty way to do, but I’ll update this post later with the best practice regarding encryption and certificate creation and use.
 
