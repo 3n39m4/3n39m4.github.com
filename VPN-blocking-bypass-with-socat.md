@@ -2,6 +2,8 @@
 
 This is a **quick** and __dirty__ way to bypass VPN restrictions in some of the countries that block VPN connections.
 
+__UPDATE:__ For a more **reliable** and __clean__ way you can just use SSH dynamic proxy. I'll post about it soon.
+
 ## Requirements of the solution:
 
 1. Free or cheap solution (no one wants to pay any money :D ).  
