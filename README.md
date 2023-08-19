@@ -2,4 +2,4 @@
 
 ## Check out my latest post:
 
-- [VPN blocking bypass with socat](https://3n39m4.github.io/VPN-blocking-bypass-with-socat)
+- [Lenovo A8-50 A5500-HV Rooting, Custom recovery (TWRP), Custom ROM and maybe more!](https://3n39m4.github.io/Lenovo-A8-50-A5500-HV-Project)
